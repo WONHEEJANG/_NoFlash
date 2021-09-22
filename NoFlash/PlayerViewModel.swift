@@ -51,6 +51,11 @@ class PlayerViewModel {
     }
     
     func loadSpells(){
+// 0. spell codable struct로 바꾸기
+// 1. spell_info.json => spell struct로 디코딩
+// 2. spells 에 append
+        
+        
         let urls = Bundle.main.urls(forResourcesWithExtension: ".png", subdirectory: "Spells") ?? []
         
         print("\n\n\n===SPELLS===")

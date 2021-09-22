@@ -1,6 +1,6 @@
 import UIKit
 
-struct Spell {
+struct Spell{
     let spellName:String
     let coolTime:Int
     let remainTime:Int
@@ -28,17 +28,15 @@ struct Spell {
 }
 
 
-//
-//struct BountyInfo {
-//    let name: String
-//    let bounty: Int
-//
-//    var image: UIImage? {
-//        return UIImage(named: "\(name).jpg")
-//    }
-//
-//    init(name: String, bounty: Int) {
-//        self.name = name
-//        self.bounty = bounty
-//    }
-//}
+
+struct SpellFromRiot:Codable{
+    let spellName:String
+    let coolTime:Int
+    let spellKey:String
+    
+    enum CodingKeys: String, CodingKey {
+        case spellName = "id"
+        case coolTime = "cooldown"
+        case spellKey = "key"
+    }
+}

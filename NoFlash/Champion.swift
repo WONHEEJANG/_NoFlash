@@ -18,3 +18,14 @@ struct Champion{
 }
 
 
+struct ChampionFromRiot:Codable{
+    let ChampionName:String
+    let ChampKey:String
+    
+    enum CodingKeys: String, CodingKey {
+        case ChampionName = "id"
+        case ChampKey = "key"
+    }
+}
+
+

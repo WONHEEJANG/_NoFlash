@@ -65,6 +65,7 @@
 		9663551826EA1A190060C1CA /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
 		9663551A26EA1B760060C1CA /* Champions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Champions; path = NoFlash/Champions; sourceTree = "<group>"; };
 		9663551B26EA1B760060C1CA /* Spells */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Spells; path = NoFlash/Spells; sourceTree = "<group>"; };
+		966F4AD226FB190700D08BB6 /* champion.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = champion.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +147,7 @@
 		9663550926EA19E30060C1CA /* NoFlashUITests */ = {
 			isa = PBXGroup;
 			children = (
+				966F4AD226FB190700D08BB6 /* champion.json */,
 				9663550A26EA19E30060C1CA /* NoFlashUITests.swift */,
 				9663550C26EA19E30060C1CA /* Info.plist */,
 			);
