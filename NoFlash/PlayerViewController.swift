@@ -10,6 +10,8 @@ class PlayerViewController: UIViewController{
         playerViewModel.loadChampions()
         playerViewModel.loadSpells()
         playerViewModel.loadRandomPlayers()
+        playerViewModel.loadPlayers()
+        
     }
     
 }

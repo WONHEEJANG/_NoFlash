@@ -21,8 +21,10 @@
 		9663550026EA19E30060C1CA /* NoFlashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966354FF26EA19E30060C1CA /* NoFlashTests.swift */; };
 		9663550B26EA19E30060C1CA /* NoFlashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9663550A26EA19E30060C1CA /* NoFlashUITests.swift */; };
 		9663551926EA1A190060C1CA /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9663551826EA1A190060C1CA /* Spell.swift */; };
-		9663551C26EA1B770060C1CA /* Champions in Resources */ = {isa = PBXBuildFile; fileRef = 9663551A26EA1B760060C1CA /* Champions */; };
-		9663551D26EA1B770060C1CA /* Spells in Resources */ = {isa = PBXBuildFile; fileRef = 9663551B26EA1B760060C1CA /* Spells */; };
+		967C6772270413DA00F9E14D /* champion_info.json in Resources */ = {isa = PBXBuildFile; fileRef = 967C6770270413D900F9E14D /* champion_info.json */; };
+		967C6773270413DA00F9E14D /* spell_info.json in Resources */ = {isa = PBXBuildFile; fileRef = 967C6771270413D900F9E14D /* spell_info.json */; };
+		967C677427041D3500F9E14D /* Champions in Resources */ = {isa = PBXBuildFile; fileRef = 9663551A26EA1B760060C1CA /* Champions */; };
+		967C677527041D3A00F9E14D /* Spells in Resources */ = {isa = PBXBuildFile; fileRef = 9663551B26EA1B760060C1CA /* Spells */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +67,8 @@
 		9663551826EA1A190060C1CA /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
 		9663551A26EA1B760060C1CA /* Champions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Champions; path = NoFlash/Champions; sourceTree = "<group>"; };
 		9663551B26EA1B760060C1CA /* Spells */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Spells; path = NoFlash/Spells; sourceTree = "<group>"; };
-		966F4AD226FB190700D08BB6 /* champion.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = champion.json; sourceTree = "<group>"; };
+		967C6770270413D900F9E14D /* champion_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = champion_info.json; sourceTree = "<group>"; };
+		967C6771270413D900F9E14D /* spell_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spell_info.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 				966354F126EA19E30060C1CA /* Assets.xcassets */,
 				966354F326EA19E30060C1CA /* LaunchScreen.storyboard */,
 				966354F626EA19E30060C1CA /* Info.plist */,
+				967C6770270413D900F9E14D /* champion_info.json */,
+				967C6771270413D900F9E14D /* spell_info.json */,
 			);
 			path = NoFlash;
 			sourceTree = "<group>";
@@ -147,7 +152,6 @@
 		9663550926EA19E30060C1CA /* NoFlashUITests */ = {
 			isa = PBXGroup;
 			children = (
-				966F4AD226FB190700D08BB6 /* champion.json */,
 				9663550A26EA19E30060C1CA /* NoFlashUITests.swift */,
 				9663550C26EA19E30060C1CA /* Info.plist */,
 			);
@@ -257,11 +261,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9663551D26EA1B770060C1CA /* Spells in Resources */,
+				967C677527041D3A00F9E14D /* Spells in Resources */,
+				967C677427041D3500F9E14D /* Champions in Resources */,
 				966354F526EA19E30060C1CA /* LaunchScreen.storyboard in Resources */,
 				966354F226EA19E30060C1CA /* Assets.xcassets in Resources */,
 				966354F026EA19E20060C1CA /* Main.storyboard in Resources */,
-				9663551C26EA1B770060C1CA /* Champions in Resources */,
+				967C6773270413DA00F9E14D /* spell_info.json in Resources */,
+				967C6772270413DA00F9E14D /* champion_info.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

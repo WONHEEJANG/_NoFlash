@@ -2,6 +2,7 @@ import UIKit
 
 struct Champion{
     let championName:String
+    let championKey:String
     let championURL:URL
     
     var image: UIImage? {
@@ -9,14 +10,28 @@ struct Champion{
     }
     init(){
         self.championName = "NIL"
+        self.championKey = "NIL"
         self.championURL = URL(fileURLWithPath: "NIL_PATH")
+
     }
-    init(championName: String, championURL:URL) {
+    init(championName: String, championKey:String ,championURL:URL) {
         self.championName = championName
+        self.championKey = championKey
         self.championURL = championURL
     }
 }
 
+
+struct ChampionResponse:Codable{
+    
+    let type:String
+    let data:[String:ChampionFromRiot]
+    
+    enum CodingKeys: String, CodingKey {
+        case type
+        case data
+    }
+}
 
 struct ChampionFromRiot:Codable{
     let ChampionName:String
