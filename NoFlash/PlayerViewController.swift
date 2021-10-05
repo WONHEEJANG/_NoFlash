@@ -14,6 +14,9 @@ class PlayerViewController: UIViewController{
         
     }
     
+    @IBAction func loadGame(_ sender: Any) {
+        playerViewModel.loadPlayers()
+    }
 }
 
 extension PlayerViewController: UICollectionViewDataSource {

@@ -7,8 +7,8 @@ class PlayerViewModel {
     var spells:[Spell] = []
     
     func loadPlayers(){
-        var name = "카트라이더11"
-        var key = "RGAPI-38ba4124-318e-473e-a103-14e105bf0704"
+        var name = "코뚱잉"
+        var key = "RGAPI-c1ec9ac0-39e7-4e81-925d-96bb4b67e152"
         var loginPlayer:Player = Player()
         
         print("파인드 서머너 아이디")
@@ -114,13 +114,13 @@ class PlayerViewModel {
         {
             let playerID = "PLAYER_\(index)"
 
-            //            var champ = Champion() // 짱구 기본이미지
-            //            for _champ in champions{
-            //                if _champ.championName == "Default"
-            //                {champ = _champ}
-            //            }
+                        var champ = Champion() // 랄로 기본이미지
+                        for _champ in champions{
+                            if _champ.championName == "Ralo"
+                            {champ = _champ}
+                        }
 
-            let champ = champions.randomElement() ?? Champion() // 랜덤 챔피언 이미지
+//            let champ = champions.randomElement() ?? Champion() // 랜덤 챔피언 이미지
             let firstSpell = spells.randomElement() ?? Spell()
             let secondSpell = spells.randomElement() ?? Spell()
             let player = Player(teamId: 150, playerName: playerID, champ: champ, firstSpell: firstSpell, secondSpell: secondSpell)
@@ -164,6 +164,18 @@ class PlayerViewModel {
             let champ = Champion(championName: championName, championKey: championKey, championURL: ChampImageURL)
             champions.append(champ)
         }
+        // 랄로 찾기
+        let urls = Bundle.main.urls(forResourcesWithExtension: ".png", subdirectory: "Champions") ?? []
+        
+        var RaloImageURL :URL{
+            for url in urls
+            {
+                if "Ralo" == url.lastPathComponent.replacingOccurrences(of: "_Square_0.png", with: ""){ return url }
+            }
+            return URL(fileURLWithPath: "")
+        }
+        // 랄로 추가
+        champions.append(Champion(championName: "Ralo", championKey: "2400", championURL: RaloImageURL))
     }
 
     
