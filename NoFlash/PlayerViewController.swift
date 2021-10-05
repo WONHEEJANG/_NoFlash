@@ -10,7 +10,7 @@ class PlayerViewController: UIViewController{
         playerViewModel.loadChampions()
         playerViewModel.loadSpells()
         playerViewModel.loadRandomPlayers()
-        playerViewModel.loadPlayers()
+//        playerViewModel.loadPlayers()
         
     }
     
@@ -26,7 +26,7 @@ extension PlayerViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerViewCell", for: indexPath) as? PlayerViewCell else
         { return UICollectionViewCell() }
 
-        let player = playerViewModel.players[indexPath.row]
+        let player = playerViewModel.enemies[indexPath.row]
         switch indexPath.row {
         case 0:
             cell.lineNameLabel.text = "TOP"

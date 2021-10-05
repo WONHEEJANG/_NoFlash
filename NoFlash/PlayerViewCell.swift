@@ -67,10 +67,12 @@ class PlayerViewCell: UICollectionViewCell{
     
     
     func update(player: Player) {
+        let name = player.playerName
         let champion = player.champ
         let firstSpell = player.firstSpell
         let secondSpell = player.secondSpell
         
+        lineNameLabel.text = name
 
         champImgView.image = champion.image
         

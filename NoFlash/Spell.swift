@@ -30,8 +30,6 @@ struct Spell{
     }
 }
 
-
-
 struct SpellFromRiot:Codable{
     let spellName:String
     let coolTime:[Int]
