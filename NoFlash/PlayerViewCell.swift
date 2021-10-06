@@ -1,8 +1,10 @@
 import UIKit
+import AudioToolbox
 
 class PlayerViewCell: UICollectionViewCell{
     @IBOutlet weak var lineNameLabel: UILabel!
     @IBOutlet weak var champImgView: UIImageView!
+    @IBOutlet weak var champBtn: UIButton!
     
     @IBOutlet weak var firstSpellImgView: UIImageView!
     @IBOutlet weak var firstSpellBtn: UIButton!
@@ -19,14 +21,32 @@ class PlayerViewCell: UICollectionViewCell{
     var firstSpellCoolTime:Int = 0
     var secondSpellRemainTime:Int = 0
     var secondSpellCoolTime:Int = 0
-
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        print("CELL_AWAKEFROMNIB")
+        longPressHandler()
+    }
+    
+    func longPressHandler(){
+        var lpgr = UILongPressGestureRecognizer()
+        champBtn.addGestureRecognizer(lpgr)
+        lpgr.addTarget(self, action: #selector(champlongpress))
+    }
+    @objc func champlongpress()
+    {
+        print("champ long press")
+    }
+    
     func flipWhenFirstSpellComplete(){
         print("flipWhenFirstSpellComplete")
+        AudioServicesPlaySystemSound(4095)
         isTappedFirstSpell((Any).self)
     }
     
     func flipWhenSecondSpellComplete(){
         print("flipWhenSecondSpellComplete")
+        AudioServicesPlaySystemSound(4095)
         isTappedSecondSpell((Any).self)
     }
     
@@ -64,6 +84,17 @@ class PlayerViewCell: UICollectionViewCell{
             flipWhenSecondSpellComplete()
         }
     }
+//
+//    @IBAction func champBtnTapped(_ sender: Any) {
+//    }
+//
+//    @IBAction func longPressed(sender: UILongPressGestureRecognizer)
+//    {
+//        print("longpressed")
+//        //Different code
+//    }
+    
+    
     
     
     func update(player: Player) {
@@ -83,6 +114,9 @@ class PlayerViewCell: UICollectionViewCell{
         SecondSpellCoolTimeLabel.text = "\(secondSpell.coolTime)"
         
     }
+    
+    
+    
     
     @IBAction func isTappedFirstSpell(_ sender: Any) {
 

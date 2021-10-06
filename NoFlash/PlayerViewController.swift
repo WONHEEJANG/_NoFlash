@@ -7,6 +7,8 @@ class PlayerViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
         playerViewModel.loadChampions()
         playerViewModel.loadSpells()
         playerViewModel.loadRandomPlayers()
@@ -17,6 +19,7 @@ class PlayerViewController: UIViewController{
     @IBAction func loadGame(_ sender: Any) {
         playerViewModel.loadPlayers()
     }
+    
 }
 
 extension PlayerViewController: UICollectionViewDataSource {

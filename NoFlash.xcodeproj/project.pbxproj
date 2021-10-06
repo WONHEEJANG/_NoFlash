@@ -25,6 +25,7 @@
 		967C6773270413DA00F9E14D /* spell_info.json in Resources */ = {isa = PBXBuildFile; fileRef = 967C6771270413D900F9E14D /* spell_info.json */; };
 		967C677427041D3500F9E14D /* Champions in Resources */ = {isa = PBXBuildFile; fileRef = 9663551A26EA1B760060C1CA /* Champions */; };
 		967C677527041D3A00F9E14D /* Spells in Resources */ = {isa = PBXBuildFile; fileRef = 9663551B26EA1B760060C1CA /* Spells */; };
+		9690C22F270CB6E100D2B25C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9690C22E270CB6E100D2B25C /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		9663551B26EA1B760060C1CA /* Spells */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Spells; path = NoFlash/Spells; sourceTree = "<group>"; };
 		967C6770270413D900F9E14D /* champion_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = champion_info.json; sourceTree = "<group>"; };
 		967C6771270413D900F9E14D /* spell_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spell_info.json; sourceTree = "<group>"; };
+		9690C22E270CB6E100D2B25C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9690C22F270CB6E100D2B25C /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +108,7 @@
 				966354E626EA19E10060C1CA /* Products */,
 				9663551A26EA1B760060C1CA /* Champions */,
 				9663551B26EA1B760060C1CA /* Spells */,
+				9690C22D270CB6E100D2B25C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +160,14 @@
 				9663550C26EA19E30060C1CA /* Info.plist */,
 			);
 			path = NoFlashUITests;
+			sourceTree = "<group>";
+		};
+		9690C22D270CB6E100D2B25C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9690C22E270CB6E100D2B25C /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
