@@ -94,10 +94,6 @@
                                                     <gestureRecognizers/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title=""/>
-                                                    <connections>
-                                                        <action selector="champBtnTapped:" destination="mwM-3M-O92" eventType="touchUpInside" id="kD3-uB-97o"/>
-                                                        <outletCollection property="gestureRecognizers" destination="5F3-Ec-ydE" appends="YES" id="pLJ-Un-26Q"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -193,20 +189,19 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="Utv-Wf-Uer" kind="presentation" id="85d-Pa-cD1"/>
+                        <segue destination="Utv-Wf-Uer" kind="presentation" identifier="showChampions" id="85d-Pa-cD1"/>
                         <segue destination="LET-1a-qhZ" kind="presentation" id="6Y5-5M-Xsv"/>
                         <segue destination="SMv-8B-2Uq" kind="presentation" id="oiT-8D-yQS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="97C-Ax-xg6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="5F3-Ec-ydE"/>
             </objects>
             <point key="canvasLocation" x="121.73913043478262" y="0.6696428571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--SelectChampionViewController-->
         <scene sceneID="CMC-8o-6wX">
             <objects>
-                <viewController id="Utv-Wf-Uer" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectChampionViewController" id="Utv-Wf-Uer" userLabel="SelectChampionViewController" customClass="SelectChampionViewController" customModule="NoFlash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cwv-o0-sfw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -221,15 +216,28 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZvU-Th-7DM">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SelectChampionViewCell" id="ZvU-Th-7DM" customClass="SelectChampionViewCell" customModule="NoFlash" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2eV-Di-C96">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obg-5x-VNz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="champImgView" destination="obg-5x-VNz" id="7ts-FH-s06"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Utv-Wf-Uer" id="nAS-Kl-fux"/>
+                                    <outlet property="delegate" destination="Utv-Wf-Uer" id="vmK-IK-rqa"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hLl-vH-gBJ"/>
@@ -244,12 +252,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GtQ-EX-V5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1280" y="1"/>
+            <point key="canvasLocation" x="1279.7101449275362" y="0.6696428571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--SelectSpellViewController-->
         <scene sceneID="R7p-UH-m44">
             <objects>
-                <viewController id="LET-1a-qhZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectSpellViewController" id="LET-1a-qhZ" userLabel="SelectSpellViewController" customClass="SelectSpellViewController" customModule="NoFlash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="91e-fY-qjF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -289,10 +297,10 @@
             </objects>
             <point key="canvasLocation" x="1280" y="717"/>
         </scene>
-        <!--View Controller-->
+        <!--LoadGameViewController-->
         <scene sceneID="95H-Yz-HAZ">
             <objects>
-                <viewController id="SMv-8B-2Uq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadGameViewController" id="SMv-8B-2Uq" userLabel="LoadGameViewController" customClass="LoadGameViewController" customModule="NoFlash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FrQ-nI-IvG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

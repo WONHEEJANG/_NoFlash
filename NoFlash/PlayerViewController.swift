@@ -4,10 +4,16 @@ class PlayerViewController: UIViewController{
     
     let playerViewModel = PlayerViewModel()
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // DetailViewController 데이터 줄꺼에요
+        if segue.identifier == "showChampions" {
+            let vc = segue.destination as? SelectChampionViewController
+            vc?.champions = sender as! [Champion]
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         
         playerViewModel.loadChampions()
         playerViewModel.loadSpells()
@@ -20,11 +26,27 @@ class PlayerViewController: UIViewController{
         playerViewModel.loadPlayers()
     }
     
+    @objc func tap() {
+
+        print("Tap happend")
+        performSegue(withIdentifier: "showChampions", sender: playerViewModel.champions)
+      
+    }
+
+    @objc func long() {
+
+        print("Long press")
+//        performSegue(withIdentifier: "showChampions", sender: playerViewModel.champions)
+//        let vcname = self.storyboard?.instantiateViewController(withIdentifier: "SelectChampionViewController") ?? UIViewController()
+//        self.present(vcname, animated: true, completion: nil)
+    }
+
 }
 
 extension PlayerViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
+//        return playerViewModel.champions.count
     }
     
     
@@ -53,7 +75,13 @@ extension PlayerViewController: UICollectionViewDataSource {
             cell.lineNameLabel.text = "DEFAULT"
             cell.update(player: player)
         }
-
+        
+        let ChampionTapGesture = UITapGestureRecognizer(target: self, action: #selector (tap))  //Tap function will call when user tap on button
+        let ChampionLongGesture = UILongPressGestureRecognizer(target: self, action: #selector(long))  //Long function will call when user long press on button.
+        ChampionTapGesture.numberOfTapsRequired = 1
+        cell.champBtn.addGestureRecognizer(ChampionTapGesture)
+        cell.champBtn.addGestureRecognizer(ChampionLongGesture)
+        
         return cell
     }
     

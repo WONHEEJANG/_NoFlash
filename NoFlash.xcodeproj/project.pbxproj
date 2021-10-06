@@ -26,6 +26,10 @@
 		967C677427041D3500F9E14D /* Champions in Resources */ = {isa = PBXBuildFile; fileRef = 9663551A26EA1B760060C1CA /* Champions */; };
 		967C677527041D3A00F9E14D /* Spells in Resources */ = {isa = PBXBuildFile; fileRef = 9663551B26EA1B760060C1CA /* Spells */; };
 		9690C22F270CB6E100D2B25C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9690C22E270CB6E100D2B25C /* AudioToolbox.framework */; };
+		9690C231270DE92100D2B25C /* SelectChampionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690C230270DE92100D2B25C /* SelectChampionViewController.swift */; };
+		9690C233270DE93300D2B25C /* SelectSpellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690C232270DE93300D2B25C /* SelectSpellViewController.swift */; };
+		9690C235270DE93E00D2B25C /* LoadGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690C234270DE93E00D2B25C /* LoadGameViewController.swift */; };
+		9690C237270DF58D00D2B25C /* SelectChampionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690C236270DF58D00D2B25C /* SelectChampionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,10 @@
 		967C6770270413D900F9E14D /* champion_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = champion_info.json; sourceTree = "<group>"; };
 		967C6771270413D900F9E14D /* spell_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spell_info.json; sourceTree = "<group>"; };
 		9690C22E270CB6E100D2B25C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9690C230270DE92100D2B25C /* SelectChampionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChampionViewController.swift; sourceTree = "<group>"; };
+		9690C232270DE93300D2B25C /* SelectSpellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSpellViewController.swift; sourceTree = "<group>"; };
+		9690C234270DE93E00D2B25C /* LoadGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadGameViewController.swift; sourceTree = "<group>"; };
+		9690C236270DF58D00D2B25C /* SelectChampionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChampionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +143,10 @@
 				4BFCA9CB26EAED1500DAE8BF /* Champion.swift */,
 				9663551826EA1A190060C1CA /* Spell.swift */,
 				966354EE26EA19E20060C1CA /* Main.storyboard */,
+				9690C230270DE92100D2B25C /* SelectChampionViewController.swift */,
+				9690C236270DF58D00D2B25C /* SelectChampionViewCell.swift */,
+				9690C232270DE93300D2B25C /* SelectSpellViewController.swift */,
+				9690C234270DE93E00D2B25C /* LoadGameViewController.swift */,
 				966354F126EA19E30060C1CA /* Assets.xcassets */,
 				966354F326EA19E30060C1CA /* LaunchScreen.storyboard */,
 				966354F626EA19E30060C1CA /* Info.plist */,
@@ -304,6 +316,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9690C235270DE93E00D2B25C /* LoadGameViewController.swift in Sources */,
+				9690C237270DF58D00D2B25C /* SelectChampionViewCell.swift in Sources */,
 				4BFCA9D026EAEE0900DAE8BF /* PlayerViewCell.swift in Sources */,
 				4BFCA9D226EAEE9E00DAE8BF /* PlayerHeaderView.swift in Sources */,
 				4BFCA9CC26EAED1500DAE8BF /* Champion.swift in Sources */,
@@ -311,8 +325,10 @@
 				966354E926EA19E10060C1CA /* AppDelegate.swift in Sources */,
 				9663551926EA1A190060C1CA /* Spell.swift in Sources */,
 				966354EB26EA19E20060C1CA /* SceneDelegate.swift in Sources */,
+				9690C233270DE93300D2B25C /* SelectSpellViewController.swift in Sources */,
 				4BFCA9D426EB4F6800DAE8BF /* Player.swift in Sources */,
 				4BFCA9CE26EAEDD000DAE8BF /* PlayerViewModel.swift in Sources */,
+				9690C231270DE92100D2B25C /* SelectChampionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
