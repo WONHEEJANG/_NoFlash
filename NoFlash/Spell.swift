@@ -2,6 +2,7 @@ import UIKit
 
 struct Spell{
     let spellName:String
+    let spellName_KR:String
     let coolTime:Int
     let remainTime:Int
     let isUsed:Bool
@@ -13,6 +14,7 @@ struct Spell{
     }
     init(){
         self.spellName = "NIL"
+        self.spellName_KR = "NIL"
         self.coolTime = 777
         self.remainTime = 777
         self.isUsed = true
@@ -20,8 +22,9 @@ struct Spell{
         self.spellKey = "NIL"
     }
     
-    init(spellName: String, coolTime: Int, remainTime: Int, isUsed: Bool, spellImageURL:URL, spellKey:String) {
+    init(spellName: String, spellName_KR: String, coolTime: Int, remainTime: Int, isUsed: Bool, spellImageURL:URL, spellKey:String) {
         self.spellName = spellName
+        self.spellName_KR = spellName_KR
         self.coolTime = coolTime
         self.remainTime = remainTime
         self.isUsed = isUsed
@@ -32,13 +35,16 @@ struct Spell{
 
 struct SpellFromRiot:Codable{
     let spellName:String
+    let spellName_KR:String
     let coolTime:[Int]
     let spellkey:String
     
     enum CodingKeys: String, CodingKey {
         case spellName = "id"
+        case spellName_KR = "name"
         case coolTime = "cooldown"
         case spellkey = "key"
+        
     }
 }
 

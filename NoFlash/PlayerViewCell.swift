@@ -6,7 +6,6 @@ class PlayerViewCell: UICollectionViewCell{
     @IBOutlet weak var champImgView: UIImageView!
     @IBOutlet weak var champBtn: UIButton!
     
-    
     @IBOutlet weak var firstSpellImgView: UIImageView!
     @IBOutlet weak var firstSpellBtn: UIButton!
     @IBOutlet weak var FirstSpellCoolTimeLabel: UILabel!
@@ -23,22 +22,6 @@ class PlayerViewCell: UICollectionViewCell{
     var secondSpellRemainTime:Int = 0
     var secondSpellCoolTime:Int = 0
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        print("CELL_AWAKEFROMNIB")
-//        longPressHandler()
-//    }
-//
-//    func longPressHandler(){
-//        var lpgr = UILongPressGestureRecognizer()
-//        champBtn.addGestureRecognizer(lpgr)
-//        lpgr.addTarget(self, action: #selector(champlongpress))
-//    }
-//    @objc func champlongpress()
-//    {
-//        print("champ long press")
-//    }
-//
     
     func flipWhenFirstSpellComplete(){
         print("flipWhenFirstSpellComplete")
@@ -86,17 +69,6 @@ class PlayerViewCell: UICollectionViewCell{
             flipWhenSecondSpellComplete()
         }
     }
-//
-//    @IBAction func champBtnTapped(_ sender: Any) {
-//    }
-//
-//    @IBAction func longPressed(sender: UILongPressGestureRecognizer)
-//    {
-//        print("longpressed")
-//        //Different code
-//    }
-    
-    
     
     
     func update(player: Player) {

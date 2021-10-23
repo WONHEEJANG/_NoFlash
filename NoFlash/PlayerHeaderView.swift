@@ -1,9 +1,11 @@
 import UIKit
+import MarqueeLabel
 
 
 class PlayerHeaderView: UICollectionReusableView {
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: MarqueeLabel!
+    @IBOutlet weak var loadGameBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

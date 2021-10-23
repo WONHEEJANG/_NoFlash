@@ -10,7 +10,7 @@ struct Player{
     init(){
         self.teamId = 0
         self.playerName = "NIL"
-        self.champ = Champion(championName: "NIL_CHAMP", championKey: "NIL", championURL: URL(fileURLWithPath: "NIL_PATH"))
+        self.champ = Champion(championName: "NIL_CHAMP", championName_KR: "NIL_CHAMP", championKey: "NIL", championURL: URL(fileURLWithPath: "NIL_PATH"))
         self.firstSpell = Spell()
         self.secondSpell = Spell()
     }

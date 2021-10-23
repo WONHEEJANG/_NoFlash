@@ -25,21 +25,17 @@ extension SelectChampionViewController: UICollectionViewDataSource {
         }
         print(indexPath.row)
         cell.champImgView.image = champions[indexPath.row].image
-//        let item = trackManager.track(at: indexPath.item)
-//        cell.updateUI(item: item)
+        cell.champNameLabel.text = champions[indexPath.row].championName_KR
+
         return cell
     }
 }
 
 extension SelectChampionViewController: UICollectionViewDelegate {
-//    // 클릭했을때 어떻게 할까?
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
-//        guard let playerVC = playerStoryboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
-//        let item = trackManager.tracks[indexPath.item]
-//        playerVC.simplePlayer.replaceCurrentItem(with: item)
-//        present(playerVC, animated: true, completion: nil)
-//    }
+    // 클릭했을때 어떻게 할까?
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+    }
 }
 
 extension SelectChampionViewController: UICollectionViewDelegateFlowLayout {
@@ -48,6 +44,8 @@ extension SelectChampionViewController: UICollectionViewDelegateFlowLayout {
         // 20 - card(width) - 20 - card(width) - 20
         let width: CGFloat = (collectionView.bounds.width - (20 * 3))/2
         let height: CGFloat = width + 60
+        print(width)
+        print(height)
         return CGSize(width: width, height: height)
     }
 }

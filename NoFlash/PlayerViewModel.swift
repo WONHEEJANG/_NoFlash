@@ -7,8 +7,8 @@ class PlayerViewModel {
     var spells:[Spell] = []
     
     func loadPlayers(){
-        var name = "코뚱잉"
-        var key = "RGAPI-c1ec9ac0-39e7-4e81-925d-96bb4b67e152"
+        var name = "커피물조절장인"
+        var key = "RGAPI-070705a6-c19f-4ede-b959-4f9f8b38d6e5"
         var loginPlayer:Player = Player()
         
         print("파인드 서머너 아이디")
@@ -134,6 +134,42 @@ class PlayerViewModel {
         }
     }
     
+    func loadDefaultPlayers(){
+        for index in 1...5
+        {
+            let playerID = "PLAYER_\(index)"
+
+            var champ = Champion() // 랄로 기본이미지
+            for _champ in champions{
+                if _champ.championName == "Ralo"
+                {champ = _champ}
+            }
+
+//            let champ = champions.randomElement() ?? Champion() // 랜덤 챔피언 이미지
+//            let firstSpell = spells.randomElement() ?? Spell()
+//            let secondSpell = spells.randomElement() ?? Spell()
+            var firstSpell = Spell()
+            var secondSpell = Spell()
+            
+            for _spell in spells{
+                if _spell.spellName == "SummonerDefault"
+                {
+                    firstSpell = _spell
+                    secondSpell = _spell
+                }
+            }
+            
+            let player = Player(teamId: 150, playerName: playerID, champ: champ, firstSpell: firstSpell, secondSpell: secondSpell)
+            enemies.append(player)
+            
+            print(player.playerName)
+            print(player.champ)
+            print(player.firstSpell)
+            print(player.secondSpell)
+
+        }
+    }
+    
     func loadChampions(){
         
         let fileName = "champion_info"
@@ -149,6 +185,7 @@ class PlayerViewModel {
             let championFromRiot = response.data[champ.key]
             
             let championName = championFromRiot?.ChampionName ?? ""
+            let championName_KR = championFromRiot?.ChampionName_KR ?? ""
             let championKey = championFromRiot?.ChampKey ?? ""
            
             let urls = Bundle.main.urls(forResourcesWithExtension: ".png", subdirectory: "Champions") ?? []
@@ -161,7 +198,7 @@ class PlayerViewModel {
                 return URL(fileURLWithPath: "")
             }
             
-            let champ = Champion(championName: championName, championKey: championKey, championURL: ChampImageURL)
+            let champ = Champion(championName: championName, championName_KR: championName_KR, championKey: championKey, championURL: ChampImageURL)
             champions.append(champ)
         }
         // 랄로 찾기
@@ -175,7 +212,7 @@ class PlayerViewModel {
             return URL(fileURLWithPath: "")
         }
         // 랄로 추가
-        champions.append(Champion(championName: "Ralo", championKey: "2400", championURL: RaloImageURL))
+        champions.append(Champion(championName: "Ralo", championName_KR: "랄선생", championKey: "2400", championURL: RaloImageURL))
     }
 
     
@@ -194,6 +231,7 @@ class PlayerViewModel {
             let spellFromRiot = response.data[spell.key]
             
             let spellName = spellFromRiot?.spellName ?? ""
+            let spellName_KR = spellFromRiot?.spellName_KR ?? ""
             let spellCoolTime = spellFromRiot?.coolTime[0] ?? 0
             let spellkey = spellFromRiot?.spellkey ?? ""
             let urls = Bundle.main.urls(forResourcesWithExtension: ".png", subdirectory: "Spells") ?? []
@@ -205,9 +243,21 @@ class PlayerViewModel {
                 }
                 return URL(fileURLWithPath: "")
             }
-            let spell = Spell(spellName: spellName, coolTime: spellCoolTime, remainTime: spellCoolTime, isUsed: false, spellImageURL: spellImageURl, spellKey: spellkey)
+            let spell = Spell(spellName: spellName, spellName_KR: spellName_KR, coolTime: spellCoolTime, remainTime: spellCoolTime, isUsed: false, spellImageURL: spellImageURl, spellKey: spellkey)
             spells.append(spell)
         }
+        // 도지 찾기
+        let urls = Bundle.main.urls(forResourcesWithExtension: ".png", subdirectory: "Spells") ?? []
+        
+        var DogeImageURL :URL{
+            for url in urls
+            {
+                if "SummonerDefault" == url.lastPathComponent.replacingOccurrences(of: ".png", with: ""){ return url }
+            }
+            return URL(fileURLWithPath: "")
+        }
+        // 도지 추가
+        spells.append(Spell(spellName: "SummonerDefault", spellName_KR: "도지", coolTime: 777, remainTime: 777, isUsed: false, spellImageURL: DogeImageURL, spellKey: "777"))
     }
 }
 
