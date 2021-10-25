@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Player View Controller-->
+        <!--PlayerViewController-->
         <scene sceneID="OsD-VF-TvT">
             <objects>
-                <viewController id="Bac-3p-Bdm" customClass="PlayerViewController" customModule="NoFlash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerViewController" title="PlayerViewController" id="Bac-3p-Bdm" userLabel="PlayerViewController" customClass="PlayerViewController" customModule="NoFlash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yyY-W9-7g4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlayerViewCell" id="mwM-3M-O92" customClass="PlayerViewCell" customModule="NoFlash" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="PlayerViewCell" reuseIdentifier="PlayerViewCell" id="mwM-3M-O92" customClass="PlayerViewCell" customModule="NoFlash" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="90" width="414" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pLF-o4-9Zu">
@@ -57,8 +57,9 @@
                                                         <action selector="isTappedFirstSpell:" destination="mwM-3M-O92" eventType="touchUpInside" id="i3w-Y6-aLU"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="777" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dp3-cc-Bh8" userLabel="FirstSpellCoolTime">
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="777" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dp3-cc-Bh8" userLabel="FirstSpellCoolTime">
                                                     <rect key="frame" x="193" y="88" width="52" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -76,8 +77,9 @@
                                                         <action selector="isTappedSecondSpell:" destination="mwM-3M-O92" eventType="touchUpInside" id="zvj-ut-BeP"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="777" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wub-L8-NQ1" userLabel="SecondSpellCoolTime">
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="777" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wub-L8-NQ1" userLabel="SecondSpellCoolTime">
                                                     <rect key="frame" x="308" y="88" width="52" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -101,8 +103,6 @@
                                                 <constraint firstItem="nw1-Pb-0wS" firstAttribute="top" secondItem="02u-ie-zI0" secondAttribute="bottom" id="43X-qE-ndg"/>
                                                 <constraint firstItem="fZM-Dl-hCV" firstAttribute="bottom" secondItem="gWA-RH-Y2h" secondAttribute="bottom" id="4yH-wc-i85"/>
                                                 <constraint firstItem="t7a-td-yAq" firstAttribute="trailing" secondItem="nw1-Pb-0wS" secondAttribute="trailing" id="AWZ-ZL-YRj"/>
-                                                <constraint firstItem="Wub-L8-NQ1" firstAttribute="centerY" secondItem="gWA-RH-Y2h" secondAttribute="centerY" id="BQn-Y8-hdX"/>
-                                                <constraint firstItem="Dp3-cc-Bh8" firstAttribute="centerY" secondItem="fZM-Dl-hCV" secondAttribute="centerY" id="Bge-ri-Tqc"/>
                                                 <constraint firstItem="GLV-4s-cmG" firstAttribute="leading" secondItem="gWA-RH-Y2h" secondAttribute="leading" id="Blr-Hq-xrs"/>
                                                 <constraint firstItem="nw1-Pb-0wS" firstAttribute="leading" secondItem="pLF-o4-9Zu" secondAttribute="leading" constant="20" id="CWt-6x-j5u"/>
                                                 <constraint firstItem="4vz-30-ZEt" firstAttribute="leading" secondItem="fZM-Dl-hCV" secondAttribute="leading" id="G6j-EO-9hp"/>
@@ -119,12 +119,9 @@
                                                 <constraint firstItem="gWA-RH-Y2h" firstAttribute="leading" secondItem="fZM-Dl-hCV" secondAttribute="trailing" constant="15" id="czS-E0-2W2"/>
                                                 <constraint firstItem="t7a-td-yAq" firstAttribute="leading" secondItem="nw1-Pb-0wS" secondAttribute="leading" id="dBC-h9-Mpk"/>
                                                 <constraint firstItem="fZM-Dl-hCV" firstAttribute="top" secondItem="gWA-RH-Y2h" secondAttribute="top" id="eHc-tH-F5l"/>
-                                                <constraint firstItem="Dp3-cc-Bh8" firstAttribute="centerX" secondItem="fZM-Dl-hCV" secondAttribute="centerX" id="fXG-DI-k9q"/>
                                                 <constraint firstItem="gWA-RH-Y2h" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pLF-o4-9Zu" secondAttribute="top" constant="20" id="iLg-KT-F5G"/>
                                                 <constraint firstItem="4vz-30-ZEt" firstAttribute="top" secondItem="fZM-Dl-hCV" secondAttribute="top" id="k1B-UK-7sA"/>
-                                                <constraint firstItem="Wub-L8-NQ1" firstAttribute="centerX" secondItem="gWA-RH-Y2h" secondAttribute="centerX" id="lK5-of-USA"/>
                                                 <constraint firstItem="02u-ie-zI0" firstAttribute="leading" secondItem="pLF-o4-9Zu" secondAttribute="leading" constant="20" id="obu-YV-646"/>
-                                                <constraint firstAttribute="bottom" secondItem="nw1-Pb-0wS" secondAttribute="bottom" constant="13" id="wws-9Z-LNa"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="160"/>
@@ -191,6 +188,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="PdZ-k4-JfP" id="Bvt-F9-k83"/>
                         <segue destination="Utv-Wf-Uer" kind="presentation" identifier="showChampions" id="85d-Pa-cD1"/>
                         <segue destination="LET-1a-qhZ" kind="presentation" identifier="showSpells" id="6Y5-5M-Xsv"/>
                         <segue destination="SMv-8B-2Uq" kind="presentation" identifier="loadGame" id="oiT-8D-yQS"/>
@@ -370,10 +368,22 @@
                                     <constraint firstAttribute="height" constant="3" id="Tti-pU-jzL"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jms-2G-upB">
+                                <rect key="frame" x="20" y="738" width="374" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="4SS-gG-JdJ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="불러오기">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="30"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QGv-Ig-PF6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="QGv-Ig-PF6" firstAttribute="bottom" secondItem="jms-2G-upB" secondAttribute="bottom" id="0mw-86-QGY"/>
+                            <constraint firstItem="jms-2G-upB" firstAttribute="leading" secondItem="QGv-Ig-PF6" secondAttribute="leading" constant="20" id="1Qc-1A-Z2g"/>
                             <constraint firstItem="QGv-Ig-PF6" firstAttribute="trailing" secondItem="Uh8-67-9eD" secondAttribute="trailing" constant="50" id="3kD-o9-zeU"/>
                             <constraint firstItem="Uh8-67-9eD" firstAttribute="centerX" secondItem="QGv-Ig-PF6" secondAttribute="centerX" id="KGZ-7j-Im9"/>
                             <constraint firstItem="dqE-Kz-BXt" firstAttribute="trailing" secondItem="Pqi-L1-aVg" secondAttribute="trailing" id="Rfy-zx-anY"/>
@@ -382,19 +392,26 @@
                             <constraint firstItem="Pqi-L1-aVg" firstAttribute="trailing" secondItem="Uh8-67-9eD" secondAttribute="trailing" id="Wk0-z7-zf8"/>
                             <constraint firstItem="Pqi-L1-aVg" firstAttribute="top" secondItem="Uh8-67-9eD" secondAttribute="bottom" constant="46" id="YFw-cW-qbG"/>
                             <constraint firstItem="Uh8-67-9eD" firstAttribute="leading" secondItem="QGv-Ig-PF6" secondAttribute="leading" constant="50" id="Zet-JP-BhY"/>
+                            <constraint firstItem="QGv-Ig-PF6" firstAttribute="trailing" secondItem="jms-2G-upB" secondAttribute="trailing" constant="20" id="ikn-AQ-pcw"/>
                             <constraint firstItem="QGv-Ig-PF6" firstAttribute="bottom" secondItem="Pqi-L1-aVg" secondAttribute="bottom" constant="533" id="lzb-cN-AmF"/>
                             <constraint firstItem="dqE-Kz-BXt" firstAttribute="top" secondItem="Pqi-L1-aVg" secondAttribute="bottom" constant="5" id="x6c-2M-YEJ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="LoadGameBtn" destination="jms-2G-upB" id="Cd9-vY-TlA"/>
                         <outlet property="textField" destination="Pqi-L1-aVg" id="usM-8t-6Da"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jz1-8N-uch" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1279.7101449275362" y="1476.5625"/>
+            <point key="canvasLocation" x="-548" y="717"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="dXd-Qd-bKv">
+            <size key="intrinsicContentSize" width="981" height="45.5"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Ralo_Square_0.png" width="900" height="900"/>
         <image name="SummonerDefault.jpg" width="414" height="447"/>

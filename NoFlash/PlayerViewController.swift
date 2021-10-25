@@ -4,6 +4,12 @@ import MarqueeLabel
 class PlayerViewController: UIViewController{
     
     let playerViewModel = PlayerViewModel()
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    
+    
+    var isLoaded : Bool = false
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // DetailViewController 데이터 줄꺼에요
@@ -23,16 +29,46 @@ class PlayerViewController: UIViewController{
         
         playerViewModel.loadChampions()
         playerViewModel.loadSpells()
-        playerViewModel.loadDefaultPlayers()
         
-//        playerViewModel.loadRandomPlayers()
-//        playerViewModel.loadPlayers()
+        print(isLoaded)
+        
+        if(!isLoaded)
+        {
+            playerViewModel.loadDefaultPlayers()
+        }
+        else{
+            
+        }
         
     }
     
-//    @IBAction func loadGame(_ sender: Any) {
-//        playerViewModel.loadPlayers()
-//    }
+    func reloadView(){
+        print(self.collectionView.numberOfItems(inSection: 0))
+        for item in 0..<self.collectionView.numberOfItems(inSection: 0){
+            let indexPath = IndexPath( item: item, section: 0 )
+            guard let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerViewCell", for: indexPath) as? PlayerViewCell else
+            { return }
+
+            let player = playerViewModel.enemies[indexPath.row]
+            
+            
+            print(playerViewModel.enemies.count)
+            print(player)
+            
+            print("-----------BEFORE--------------")
+            print(cell.lineNameLabel.text)
+            print(cell.champImgView.image)
+            print(cell.firstSpellImgView.image)
+            print(cell.secondSpellImgView.image)
+            cell.update(player: player)
+            print("-----------AFTER-------------")
+            print(cell.lineNameLabel.text)
+            print(cell.champImgView.image)
+            print(cell.firstSpellImgView.image)
+            print(cell.secondSpellImgView.image)
+        }
+        self.collectionView.reloadData()
+    }
 
     @objc func tapSpell() {
         print("tapSpell")
@@ -70,17 +106,18 @@ class PlayerViewController: UIViewController{
 }
 
 extension PlayerViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerViewCell", for: indexPath) as? PlayerViewCell else
+            
         { return UICollectionViewCell() }
 
         let player = playerViewModel.enemies[indexPath.row]
-        cell.update(player: player)
+        cell.update(player: player) 
 
         
         let ChampionTapGesture = UITapGestureRecognizer(target: self, action: #selector (tapChampion))
@@ -125,7 +162,7 @@ extension PlayerViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // 20 - card(width) - 20 - card(width) - 20
         let width: CGFloat = collectionView.bounds.width
-        let height: CGFloat = (collectionView.bounds.height - 90) / 6
+        let height: CGFloat = (collectionView.bounds.height - 90) / 4.5
 
         return CGSize(width: width, height: height)
     }

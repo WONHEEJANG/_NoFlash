@@ -6,17 +6,19 @@ class PlayerViewModel {
     var champions:[Champion] = []	
     var spells:[Spell] = []
     
-    func loadPlayers(){
-        var name = "커피물조절장인"
-        var key = "RGAPI-070705a6-c19f-4ede-b959-4f9f8b38d6e5"
+    func loadPlayers(Name:String){
+        var key = "RGAPI-9e078f21-8efb-4440-944d-7f73ad70867f"
         var loginPlayer:Player = Player()
         
         print("파인드 서머너 아이디")
-        let summonerID = FindSummonerID(SummonerName: name, key: key)
+        let summonerID = FindSummonerID(SummonerName: Name, key: key)
         let inGameInfo = FindInGameInfo(SummonerID: summonerID, key: key)
         
         print(summonerID)
         print(inGameInfo)
+        
+        ALLplayers = []
+        enemies = []
         
         for player in inGameInfo.participants
         {
@@ -34,7 +36,7 @@ class PlayerViewModel {
 
             let player = Player(teamId:teamId, playerName: playerName, champ: champ, firstSpell: firstSpell, secondSpell: secondSpell)
             
-            if name == player.playerName{
+            if Name == player.playerName{
                 loginPlayer = player
             }
             
@@ -84,7 +86,7 @@ class PlayerViewModel {
         
         let SummonerInfoURL = URL(string: EncodedSummonerInfoURLString) ?? URL(fileURLWithPath: "")
 
-        var SummonerInfoJSON:Data = try! Data.init(contentsOf: SummonerInfoURL)
+        let SummonerInfoJSON:Data = try! Data.init(contentsOf: SummonerInfoURL)
 
         let summonerinfo = try! JSONDecoder().decode(SummonerInfo.self, from: SummonerInfoJSON)
         
@@ -135,6 +137,8 @@ class PlayerViewModel {
     }
     
     func loadDefaultPlayers(){
+        
+        print("loadDefaultPlayers")
         for index in 1...5
         {
             let playerID = "PLAYER_\(index)"
