@@ -22,6 +22,8 @@ class PlayerViewCell: UICollectionViewCell{
     var secondSpellRemainTime:Int = 0
     var secondSpellCoolTime:Int = 0
     
+    var isLoaded = false
+    
     
     func flipWhenFirstSpellComplete(){
         print("flipWhenFirstSpellComplete")
@@ -93,70 +95,75 @@ class PlayerViewCell: UICollectionViewCell{
     
     
     @IBAction func isTappedFirstSpell(_ sender: Any) {
+        if(isLoaded)
+        {
+            UIView.transition(with: firstSpellImgView,
+                              duration: 0.4,
+                              options: .transitionFlipFromLeft,
+                              animations: nil, completion: nil)
 
-        UIView.transition(with: firstSpellImgView,
-                          duration: 0.4,
-                          options: .transitionFlipFromLeft,
-                          animations: nil, completion: nil)
+            if firstSpellBtn.isSelected{
+                firstSpellBtn.isSelected = false
+                firstSpellImgView.alpha = 1
+                FirstSpellCoolTimeLabel.alpha = 0
 
-        if firstSpellBtn.isSelected{
-            firstSpellBtn.isSelected = false
-            firstSpellImgView.alpha = 1
-            FirstSpellCoolTimeLabel.alpha = 0
-            
-            
-            firstSpellRemainTime = firstSpellCoolTime
-            FirstSpellCoolTimeLabel.text = "\(firstSpellRemainTime)"
-            
-            firstSpellTimer?.invalidate()
-            firstSpellTimer = nil
 
-        }
-        else{
-            firstSpellCoolTime = Int(FirstSpellCoolTimeLabel.text ?? "0") ?? 0
-            
-            firstSpellTimer = Timer.init(timeInterval: 1.0, target: self, selector: #selector(firstSpellTimeCheck), userInfo: nil, repeats: true)
-            RunLoop.current.add(firstSpellTimer!, forMode: .common)
-            
-            print("firstSpellTimer")
-            print(firstSpellTimer)
-            
-            
-            firstSpellBtn.isSelected = true
-            firstSpellImgView.alpha = 0.2
-            
-            
-            
-            UIView.animateKeyframes(withDuration: 0.1, delay: 0.2, options: .allowUserInteraction, animations: {self.FirstSpellCoolTimeLabel.alpha = 1}, completion: nil)
+                firstSpellRemainTime = firstSpellCoolTime
+                FirstSpellCoolTimeLabel.text = "\(firstSpellRemainTime)"
 
+                firstSpellTimer?.invalidate()
+                firstSpellTimer = nil
+
+            }
+            else{
+                firstSpellCoolTime = Int(FirstSpellCoolTimeLabel.text ?? "0") ?? 0
+
+                firstSpellTimer = Timer.init(timeInterval: 1.0, target: self, selector: #selector(firstSpellTimeCheck), userInfo: nil, repeats: true)
+                RunLoop.current.add(firstSpellTimer!, forMode: .common)
+
+                print("firstSpellTimer")
+                print(firstSpellTimer)
+
+                
+                firstSpellBtn.isSelected = true
+                firstSpellImgView.alpha = 0.2
+
+
+
+                UIView.animateKeyframes(withDuration: 0.1, delay: 0.2, options: .allowUserInteraction, animations: {self.FirstSpellCoolTimeLabel.alpha = 1}, completion: nil)
+
+            }
         }
     }
     
     @IBAction func isTappedSecondSpell(_ sender: Any) {
-        UIView.transition(with: secondSpellImgView,
-                          duration: 0.4,
-                          options: .transitionFlipFromLeft,
-                          animations: nil, completion: nil)
-        
-        if secondSpellBtn.isSelected{
-            secondSpellBtn.isSelected = false
-            secondSpellImgView.alpha = 1
-            SecondSpellCoolTimeLabel.alpha = 0
+        if(isLoaded)
+        {
+            UIView.transition(with: secondSpellImgView,
+                              duration: 0.4,
+                              options: .transitionFlipFromLeft,
+                              animations: nil, completion: nil)
             
-            secondSpellRemainTime = secondSpellCoolTime
-            SecondSpellCoolTimeLabel.text = "\(secondSpellRemainTime)"
+            if secondSpellBtn.isSelected{
+                secondSpellBtn.isSelected = false
+                secondSpellImgView.alpha = 1
+                SecondSpellCoolTimeLabel.alpha = 0
+                
+                secondSpellRemainTime = secondSpellCoolTime
+                SecondSpellCoolTimeLabel.text = "\(secondSpellRemainTime)"
 
-            secondSpellTimer?.invalidate()
-            secondSpellTimer = nil
-        }
-        else{
-            secondSpellCoolTime = Int(SecondSpellCoolTimeLabel.text ?? "0") ?? 0
-            secondSpellTimer = Timer.init(timeInterval: 1.0, target: self, selector: #selector(secondSpellTimeCheck), userInfo: nil, repeats: true)
-            RunLoop.current.add(secondSpellTimer!, forMode: .common)
-            
-            secondSpellBtn.isSelected = true
-            secondSpellImgView.alpha = 0.2
-            UIView.animateKeyframes(withDuration: 0.1, delay: 0.2, options: .allowUserInteraction, animations: {self.SecondSpellCoolTimeLabel.alpha = 1}, completion: nil)
+                secondSpellTimer?.invalidate()
+                secondSpellTimer = nil
+            }
+            else{
+                secondSpellCoolTime = Int(SecondSpellCoolTimeLabel.text ?? "0") ?? 0
+                secondSpellTimer = Timer.init(timeInterval: 1.0, target: self, selector: #selector(secondSpellTimeCheck), userInfo: nil, repeats: true)
+                RunLoop.current.add(secondSpellTimer!, forMode: .common)
+                
+                secondSpellBtn.isSelected = true
+                secondSpellImgView.alpha = 0.2
+                UIView.animateKeyframes(withDuration: 0.1, delay: 0.2, options: .allowUserInteraction, animations: {self.SecondSpellCoolTimeLabel.alpha = 1}, completion: nil)
+            }
         }
     }
 }

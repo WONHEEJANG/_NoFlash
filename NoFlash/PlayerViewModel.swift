@@ -6,13 +6,29 @@ class PlayerViewModel {
     var champions:[Champion] = []	
     var spells:[Spell] = []
     
-    func loadPlayers(Name:String){
-        var key = "RGAPI-9e078f21-8efb-4440-944d-7f73ad70867f"
+    func loadPlayers(Name:String) -> String {
+        let key = "RGAPI-b444446d-c8f2-4425-9236-1bbd7a4e2e72"
         var loginPlayer:Player = Player()
         
         print("파인드 서머너 아이디")
         let summonerID = FindSummonerID(SummonerName: Name, key: key)
+        
+        print(summonerID)
+        print(summonerID)
+        print(summonerID)
+        
+        if summonerID == "default"
+        {
+            return "NOT FOUND"
+        }
+        
         let inGameInfo = FindInGameInfo(SummonerID: summonerID, key: key)
+        
+        if inGameInfo.gameId == 0
+        {
+            return "NOT PLAYING"
+        }
+        
         
         print(summonerID)
         print(inGameInfo)
@@ -56,6 +72,8 @@ class PlayerViewModel {
                 enemies.append(player)
             }
         }
+        
+        return "FOUND"
     }
     
     func FindSpell(SpellKey:String)->Spell{
@@ -85,11 +103,17 @@ class PlayerViewModel {
         let EncodedSummonerInfoURLString = SummonerInfoURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
         let SummonerInfoURL = URL(string: EncodedSummonerInfoURLString) ?? URL(fileURLWithPath: "")
-
-        let SummonerInfoJSON:Data = try! Data.init(contentsOf: SummonerInfoURL)
-
-        let summonerinfo = try! JSONDecoder().decode(SummonerInfo.self, from: SummonerInfoJSON)
+        var summonerinfo = SummonerInfo(id: "default", accountId: "default", puuid: "default", name: "default", profileIconId: 0, revisionDate: 0, summonerLevel: 0)
         
+        if let SummonerInfoJSON:Data = try? Data.init(contentsOf: SummonerInfoURL){
+            summonerinfo = try! JSONDecoder().decode(SummonerInfo.self, from: SummonerInfoJSON)
+            
+            print("summonerinfo")
+            
+            print(summonerinfo)
+            print(summonerinfo)
+            print(summonerinfo)
+        }
         
         return summonerinfo.id
     }
@@ -101,10 +125,18 @@ class PlayerViewModel {
         let EncodedInGameInfoURLString = InGameInfoURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
         let InGameInfoURL = URL(string: EncodedInGameInfoURLString) ?? URL(fileURLWithPath: "")
+        var inGameinfo = InGameInfo(gameId: 0, mapId: 0, gameMode: "", gameType: "", gameQueueConfigId: 0, participants: [])
+        
+        if let InGameInfoJSON:Data = try? Data.init(contentsOf: InGameInfoURL){
+            inGameinfo = try! JSONDecoder().decode(InGameInfo.self, from: InGameInfoJSON)
+        }
+        else{
+            print("elseelseelseelseelseelseelse")
 
-        var InGameInfoJSON:Data = try! Data.init(contentsOf: InGameInfoURL)
-
-        let inGameinfo = try! JSONDecoder().decode(InGameInfo.self, from: InGameInfoJSON)
+        }
+//        var InGameInfoJSON:Data = try! Data.init(contentsOf: InGameInfoURL)
+//
+//        let inGameinfo = try! JSONDecoder().decode(InGameInfo.self, from: InGameInfoJSON)
 
 
         return inGameinfo

@@ -6,8 +6,6 @@ class PlayerViewController: UIViewController{
     let playerViewModel = PlayerViewModel()
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
-    
     var isLoaded : Bool = false
     
     
@@ -77,13 +75,13 @@ class PlayerViewController: UIViewController{
     @objc func longtapSpell() {
 
         print("longtapSpell")
-        performSegue(withIdentifier: "showSpells", sender: playerViewModel.spells)
+//        performSegue(withIdentifier: "showSpells", sender: playerViewModel.spells)
     }
     
     @objc func tapChampion() {
 
         print("tapChampion")
-        performSegue(withIdentifier: "showChampions", sender: playerViewModel.champions)
+//        performSegue(withIdentifier: "showChampions", sender: playerViewModel.champions)
       
     }
 
@@ -116,22 +114,25 @@ extension PlayerViewController: UICollectionViewDataSource {
             
         { return UICollectionViewCell() }
 
-        let player = playerViewModel.enemies[indexPath.row]
-        cell.update(player: player) 
+        if(isLoaded)
+        {
+            let player = playerViewModel.enemies[indexPath.row]
+            cell.update(player: player)
 
+            
+            let ChampionTapGesture = UITapGestureRecognizer(target: self, action: #selector (tapChampion))
+            let ChampionLongGesture = UILongPressGestureRecognizer(target: self, action: #selector(longtapChampion))
+            ChampionTapGesture.numberOfTapsRequired = 1
+            cell.champBtn.addGestureRecognizer(ChampionTapGesture)
+            cell.champBtn.addGestureRecognizer(ChampionLongGesture)
+            
+            let FirstSpellLongGesture = UILongPressGestureRecognizer(target: self, action: #selector(longtapSpell))
+            let SecondSpellLongGesture = UILongPressGestureRecognizer(target: self, action: #selector(longtapSpell))
+            cell.firstSpellBtn.addGestureRecognizer(FirstSpellLongGesture)
+            cell.secondSpellBtn.addGestureRecognizer(SecondSpellLongGesture)
+        }
         
-        let ChampionTapGesture = UITapGestureRecognizer(target: self, action: #selector (tapChampion))
-        let ChampionLongGesture = UILongPressGestureRecognizer(target: self, action: #selector(longtapChampion))
-        ChampionTapGesture.numberOfTapsRequired = 1
-        cell.champBtn.addGestureRecognizer(ChampionTapGesture)
-        cell.champBtn.addGestureRecognizer(ChampionLongGesture)
-        
-        let FirstSpellLongGesture = UILongPressGestureRecognizer(target: self, action: #selector(longtapSpell))
-        let SecondSpellLongGesture = UILongPressGestureRecognizer(target: self, action: #selector(longtapSpell))
-        cell.firstSpellBtn.addGestureRecognizer(FirstSpellLongGesture)
-        cell.secondSpellBtn.addGestureRecognizer(SecondSpellLongGesture)
-        
-        
+        cell.isLoaded = isLoaded
         return cell
     }
     
@@ -162,8 +163,8 @@ extension PlayerViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // 20 - card(width) - 20 - card(width) - 20
         let width: CGFloat = collectionView.bounds.width
-        let height: CGFloat = (collectionView.bounds.height - 90) / 4.5
-
+        let height: CGFloat = (collectionView.bounds.height - 50) / 5.5
+        
         return CGSize(width: width, height: height)
     }
 }
