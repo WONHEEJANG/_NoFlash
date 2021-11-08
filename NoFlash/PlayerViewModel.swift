@@ -7,7 +7,7 @@ class PlayerViewModel {
     var spells:[Spell] = []
     
     func loadPlayers(Name:String) -> String {
-        let key = "RGAPI-b444446d-c8f2-4425-9236-1bbd7a4e2e72"
+        let key = "RGAPI-9d1f234c-c20f-4fad-963e-5e391d815db7"
         var loginPlayer:Player = Player()
         
         print("파인드 서머너 아이디")

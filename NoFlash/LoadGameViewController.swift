@@ -144,7 +144,7 @@ extension LoadGameViewController {
                         let keyboardHeight = keyboardRectangle.height
                     
                     UIView.animate(withDuration: 1) {
-                        self.LoadGameBtnToBottomSafeArea.constant -= keyboardHeight
+                        self.LoadGameBtnToBottomSafeArea.constant = 0
                         self.view.layoutIfNeeded()
                     }
                 }
